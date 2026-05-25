@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title>Nhà sách ABC</title>
+</head>
+<body bgcolor="#FFFFFF" style="margin: 0; padding: 0; font-family: Arial, sans-serif;">
+
+    <header style="width: 100%; padding: 10px 0; border-bottom: 2px solid blue; overflow: hidden;">
+        <div style="float: left; width: 40%; padding-left: 20px;">
+            <a href="Trangchu.html">
+                <img src="Images/logo.jpg" alt="Logo Website Sách" height="60" border="0">
+            </a>
+        </div>
+        <div style="float: right; width: 55%; text-align: right; padding-right: 20px; line-height: 60px;">
+            <font size="3">
+                <img src="Images/login.png" width="16" height="16" align="absmiddle">
+                <a href="Dangnhap.html" style="text-decoration: none; color: blue;"><b>Đăng nhập</b></a>
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <img src="Images/login.png" width="16" height="16" align="absmiddle">
+                <a href="Dangky.html" style="text-decoration: none; color: blue;"><b>Đăng ký</b></a>
+                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+                <img src="Images/gio_hang.jpg" width="16" height="16" align="absmiddle">
+                <a href="#" style="text-decoration: none; color: red;"><b>Giỏ hàng (0)</b></a>
+            </font>
+        </div>
+    </header>
+
+    <nav style="padding: 10px 20px; border-bottom: 1px solid #ccc;">
+        <ul>
+            <li><a href="Trangchu.html"><b>TRANG CHỦ</b></a></li>
+            <li><a href="Gioithieu.html"><b>GIỚI THIỆU</b></a></li>
+            <li><a href="#"><b>LIÊN HỆ</b></a></li>
+        </ul>
+        <div>
+            <input type="text" size="36" name="tsearch" placeholder="Hãy nhập tên sách cần tìm ...">
+            <input type="submit" value="Tìm sách">
+        </div>
+    </nav>
+
+    <div align="center" style="margin: 10px 0;">
+        <div style="position: relative; width: 1000px; height: 300px; margin: 0 auto; overflow: hidden; background-color: #f0f0f0;">
+            <div id="slider" style="display: flex; transition: transform 0.5s ease-in-out;">
+                <div style="min-width: 1000px; height: 300px; display: flex; align-items: center; justify-content: center;">
+                    <img src="Images/sach.jpg" alt="Giáo trình Tin học cơ bản" style="max-height: 280px; max-width: 90%;">
+                </div>
+                <div style="min-width: 1000px; height: 300px; display: flex; align-items: center; justify-content: center;">
+                    <img src="Images/visual_basic_6.jpg" alt="Thủ Thuật Lập Trình VB6" style="max-height: 280px; max-width: 90%;">
+                </div>
+                <div style="min-width: 1000px; height: 300px; display: flex; align-items: center; justify-content: center;">
+                    <img src="Images/lap_trinh_c++.jpg" alt="Lập Trình C++" style="max-height: 280px; max-width: 90%;">
+                </div>
+                <div style="min-width: 1000px; height: 300px; display: flex; align-items: center; justify-content: center;">
+                    <img src="Images/thiet_ke_web.jpg" alt="Thiết Kế Web" style="max-height: 280px; max-width: 90%;">
+                </div>
+            </div>
+            <button onclick="moveSlide(-1)" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 20px; cursor: pointer; z-index: 10;">❮</button>
+            <button onclick="moveSlide(1)" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); width: 40px; height: 40px; background-color: rgba(0,0,0,0.5); color: white; border: none; font-size: 20px; cursor: pointer; z-index: 10;">❯</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#slider > div');
+        const totalSlides = slides.length;
+
+        function moveSlide(n) {
+            currentSlide += n;
+            if (currentSlide >= totalSlides) {
+                currentSlide = 0;
+            } else if (currentSlide < 0) {
+                currentSlide = totalSlides - 1;
+            }
+            updateSlider();
+        }
+
+        function updateSlider() {
+            const slider = document.getElementById('slider');
+            slider.style.transform = `translateX(-${currentSlide * 1000}px)`;
+        }
+
+        // Auto-scroll mỗi 5 giây
+        setInterval(function() {
+            moveSlide(1);
+        }, 5000);
+    </script>
+
+    <div style="width: 1000px; margin: 0 auto;">
+        <article style="display: flex; gap: 15px;">
+            
+            <aside style="width: 200px; flex-shrink: 0;">
+                <table width="100%" border="1" cellspacing="0" cellpadding="8" style="border-collapse: collapse;">
+                    <tr bgcolor="blue">
+                        <td align="center"><b><font color="white">DANH MỤC SÁCH</font></b></td>
+                    </tr>
+                    <tr><td><a href="#" style="text-decoration: none; color: black;">Tin học đại cương</a></td></tr>
+                    <tr><td><a href="#" style="text-decoration: none; color: black;">Kỹ thuật lập trình</a></td></tr>
+                    <tr><td><a href="#" style="text-decoration: none; color: black;">Cơ sở dữ liệu</a></td></tr>
+                    <tr><td><a href="#" style="text-decoration: none; color: black;">Thiết kế Website</a></td></tr>
+                    <tr><td><a href="#" style="text-decoration: none; color: black;">Trí tuệ nhân tạo</a></td></tr>
+                </table>
+            </aside>
+
+            <section style="flex-grow: 1; border: 1px solid #ccc; padding: 15px;" align="center">
+                <p align="center">
+                    <a href="Chitietsanpham.html">
+                        <b><font size="6" color="blue">Giáo trình Tin học cơ bản</font></b>
+                    </a>
+                </p>
+                <p align="center">
+                    <img src="Images/sach.jpg" alt="Giáo trình Tin học cơ bản" width="180">
+                </p>
+                <p align="center">
+                    Đơn giá: <b><font size="5" color="red">26,000 VNĐ</font></b>
+                </p>
+                <p align="center">
+                    <a href="Chitietsanpham.html">
+                        <img src="Images/nut_chon_mua.png" alt="Chọn mua" width="120" border="0">
+                    </a>
+                </p>
+            </section>
+
+            <aside style="width: 220px; flex-shrink: 0;">
+                <p align="center" style="margin-top: 0;"><b><font color="blue">SÁCH BÁN NHIỀU</font></b></p>
+                <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">
+                    <tr>
+                        <td>
+                            <marquee direction="up" scrollamount="3" scrolldelay="100" onMouseMove="this.stop()" onMouseOut="this.start()" height="180">
+                                <p align="center">
+                                    <a href="#" style="text-decoration: none; color: black;">
+                                        <img src="Images/visual_basic_6.jpg" width="70"><br>
+                                        <font size="2">Thủ Thuật Lập Trình VB6</font>
+                                    </a>
+                                </p>
+                                <hr>
+                                <p align="center">
+                                    <a href="#" style="text-decoration: none; color: black;">
+                                        <img src="Images/sach.jpg" width="70"><br>
+                                        <font size="2">Giáo trình Tin học cơ bản</font>
+                                    </a>
+                                </p>
+                            </marquee>
+                        </td>
+                    </tr>
+                </table>
+
+                <p align="center"><b><font color="blue">LIÊN KẾT WEBSITE</font></b></p>
+                <div align="center">
+                    <select onchange="if(this.value) window.open(this.value,'_blank')">
+                        <option value="">--- Chọn trang liên kết ---</option>
+                        <option value="https://tdmu.edu.vn">ĐH Thủ Dầu Một</option>
+                        <option value="https://fet.tdmu.edu.vn">Khoa Kỹ thuật – Công nghệ</option>
+                    </select>
+                </div>
+            </aside>
+
+        </article>
+    </div>
+
+    <footer style="background-color: #f0f0f0; border-top: 2px solid blue; padding: 15px; margin-top: 20px;" align="center">
+        <p>©2016 - Nhà sách ABC. Allright Reserved</p>
+        <p>Website được phát triển để sử dụng làm bài tập thực hành môn Thiết kế và Lập trình Web</p>
+        <p>Email: abc.bookstore@gmail.com</p>
+    </footer>
+
+</body>
+</html>
