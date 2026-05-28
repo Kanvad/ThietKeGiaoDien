@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="Style.css">
+</head>
+
+<body bgcolor="#BFDDF0">
+    <h1>Sách theo chủ đề</h1>
+    <ul type="square">
+        <li><a href="#">Ngoại ngữ</a></li>
+        <li><a href="#">Công nghệ thông tin</a></li>
+        <li><a href="#">Luật</a></li>
+        <li><a href="#">Văn học</a></li>
+        <li><a href="#">Khoa học kĩ thuật</a></li>
+        <li><a href="#">Nông nghiệp</a></li>
+        <li><a href="#">Lịch sử, địa lý</a></li>
+        <li><a href="#">Kinh tế</a></li>
+        <li><a href="#">Nghệ thuật sống</a></li>
+    </ul>
+
+    <h1>Sách theo nhà xuất bản</h1>
+    <ul type="square">
+        <li><a href="#">Nhà xuất bản Trẻ</a></li>
+        <li><a href="#">NXB Thống kê</a></li>
+        <li><a href="#">Kim đồng</a></li>
+        <li><a href="#">Đại học quốc gia</a></li>
+        <li><a href="#">Văn hóa nghệ thuật</a></li>
+        <li><a href="#">Văn hóa</a></li>
+        <li><a href="#">Lao động - Xã hội</a></li>
+        <li><a href="#">Khoa học & Kỹ thuật</a></li>
+    </ul>
+
+    <div class="calendar">
+        <script LANGUAGE="JavaScript">
+            monthnames = new Array("January", "February", "March",
+                "April", "May", "June", "July", "August", "September", "October",
+                "November", "December");
+            function addlink(month, day, href) {
+                if (!this.links) this.links = {};
+                var key = month + '-' + day;
+                this.links[key] = href;
+            }
+            Array.prototype.addlink = addlink; monthdays
+                = new Array(12); monthdays[0] = 31;
+            monthdays[1] = 28; monthdays[2] = 31;
+            monthdays[3] = 30; monthdays[4] = 31;
+            monthdays[5] = 30; monthdays[6] = 31;
+            monthdays[7] = 31; monthdays[8] = 30;
+            monthdays[9] = 31; monthdays[10] = 30;
+            monthdays[11] = 31; todayDate = new Date();
+            thisday = todayDate.getDay();
+            thismonth = todayDate.getMonth();
+            thisdate = todayDate.getDate();
+            thisyear = todayDate.getYear();
+            thisyear = thisyear % 100;
+            thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
+            if (((thisyear % 4 == 0) && !(thisyear % 100 == 0)) || (thisyear % 400 == 0)) {
+                monthdays[1]++;
+            }
+            var firstDayOfMonth = new Date(thisyear, thismonth, 1).getDay();
+            var startspaces = firstDayOfMonth;
+            document.write("<table>");
+            document.write("<tr><td colspan='7' class='monthyear'>" + monthnames[thismonth] + " " + thisyear + "</td></tr>");
+            document.write("<tr class='weektitle'>");
+            document.write("<td align='center'>Sun</td>");
+            document.write("<td align='center'>Mon</td>");
+            document.write("<td align='center'>Tue</td>");
+            document.write("<td align='center'>Wed</td>");
+            document.write("<td align='center'>Thu</td>");
+            document.write("<td align='center'>Fri</td>");
+            document.write("<td align='center'>Sat</td>");
+            document.write("</tr><tr>");
+            for (i = 0; i < startspaces; i++) {
+                document.write("<td></td>");
+            }
+            for (i = 1; i <= monthdays[thismonth]; i++) {
+                var thislink = this[i];
+                if (thislink) {
+                    document.write("<td align='center'><a href='" + thislink[2] + "'>" + i + "</a></td>");
+                } else {
+                    document.write("<td align='center'>" + i + "</td>");
+                }
+                if (((i + startspaces) % 7 == 0) && (i != monthdays[thismonth])) {
+                    document.write("</tr><tr>");
+                }
+            }
+            document.write("</tr></table>");
+        </script>
+    </div>
+</body>
+
+</html>
