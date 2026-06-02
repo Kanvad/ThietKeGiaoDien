@@ -4,255 +4,280 @@
 <head>
     <meta charset="utf-8">
     <title>Nhà sách ABC</title>
-    <link rel="stylesheet" type="text/css" href="Style.css">
-    <link rel="stylesheet" type="text/css" href="Slider.css">
+    <link rel="stylesheet" type="text/css" href="Script/Style.css">
+    <link rel="stylesheet" type="text/css" href="Script/Slider.css">
 </head>
 
 <body bgcolor="#FFFFFF" style="margin: 0; padding: 0; font-family: Arial, sans-serif;">
 
-    <header style="width: 100%; padding: 10px 0; border-bottom: 2px solid blue; overflow: hidden;">
-        <div style="float: left; width: 40%; padding-left: 20px;">
+    <header>
+        <div id="logo">
             <a href="Trangchu.html">
                 <img src="Images/logo.jpg" alt="Logo Website Sách" height="60" border="0">
             </a>
         </div>
-        <div style="float: right; width: 55%; text-align: right; padding-right: 20px; line-height: 60px;">
-            <font size="3">
-                <img src="Images/login.png" width="16" height="16" align="absmiddle">
-                <a href="Dangnhap.html" style="text-decoration: none; color: blue;"><b>Đăng nhập</b></a>
-                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <img src="Images/login.png" width="16" height="16" align="absmiddle">
-                <a href="Dangky.html" style="text-decoration: none; color: blue;"><b>Đăng ký</b></a>
-                &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-                <img src="Images/gio_hang.jpg" width="16" height="16" align="absmiddle">
-                <a href="#" style="text-decoration: none; color: red;"><b>Giỏ hàng (0)</b></a>
-            </font>
+        <div id="dn">
+            <img src="Images/login.png" width="16" height="16" align="absmiddle">
+            <a href="Dangnhap.html"><b>Đăng nhập</b></a>
+            <a>|</a>
+            <a href="Dangky.html"><b>Đăng ký</b></a>
+            <img src="Images/gio_hang.jpg" width="16" height="16" align="absmiddle">
+            <a href="#"><b>Giỏ hàng</b></a>
         </div>
     </header>
 
-    <nav style="padding: 10px 20px; border-bottom: 1px solid #ccc;">
-        <ul>
-            <li><a href="Trangchu.html"><b>TRANG CHỦ</b></a></li>
-            <li><a href="Gioithieu.html"><b>GIỚI THIỆU</b></a></li>
-            <li><a href="#"><b>LIÊN HỆ</b></a></li>
-        </ul>
-        <div>
-            <input type="text" size="36" name="tsearch" placeholder="Hãy nhập tên sách cần tìm ...">
-            <input type="submit" value="Tìm sách">
+    <nav>
+        <div id="subnav">
+            <ul>
+                <li><a href="Trangchu.html"><b>TRANG CHỦ</b></a></li>
+                <li><a href="Gioithieu.html"><b>GIỚI THIỆU</b></a></li>
+                <li><a href="#"><b>LIÊN HỆ</b></a></li>
+            </ul>
+            <div>
+                <input type="text" size="36" name="tsearch" placeholder="Hãy nhập tên sách cần tìm ...">
+                <input type="submit" value="Tìm sách">
+            </div>
         </div>
     </nav>
 
-    <aside id="slide">
-        <div class="slide-pager">
-            <div class="slide-control-prev">«</div>
-            <div class="slide-control-next">»</div>
-        </div>
-        <div class="slide-container">
-            <div class="slide-stage">
-                <div class="slide-image"><a href="#"><img src="Images/lap_trinh_c++.jpg" /></a></div>
-                <div class="slide-image"><a href="#"><img src="Images/thiet_ke_web.jpg" /></a></div>
-                <div class="slide-image"><a href="#"><img src="Images/sach.jpg" /></a></div>
-                <div class="slide-image"><a href="#"><img src="Images/lap_trinh_c#.jpg" /></a></div>
-                <div class="slide-image"><a href="#"><img src="Images/visual_basic_6.jpg" /></a></div>
-                <div class="slide-image"><a href="#"><img src="Images/sach_python.jpg" /></a></div>
+    <div id="body">
+        <aside id="slide">
+            <div class="slide-pager">
+                <div class="slide-control-prev">«</div>
+                <div class="slide-control-next">»</div>
             </div>
-        </div>
-    </aside>
+            <div class="slide-container">
+                <div class="slide-stage">
+                    <div class="slide-image"><a href="#"><img src="Images/lap_trinh_c++.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/thiet_ke_web.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/sach.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/sach_java.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/visual_basic_6.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/sach_photoshop.png" /></a></div>
+                </div>
+            </div>
+        </aside>
 
-    <script>
-        const slideStage = document.querySelector('.slide-stage');
-        const slides = document.querySelectorAll('.slide-image');
-        const slideWidth = 200;
-        const visibleSlides = 5;
-        const totalSlides = slides.length;
-        let currentSlide = 0;
+        <script>
+            const slideStage = document.querySelector('.slide-stage');
+            const slides = document.querySelectorAll('.slide-image');
+            const slideWidth = 200;
+            const visibleSlides = 5;
+            const totalSlides = slides.length;
+            let currentSlide = 0;
 
-        function updateSlider() {
-            slideStage.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
-        }
-
-        function moveSlide(n) {
-            const maxStartIndex = Math.max(0, totalSlides - visibleSlides);
-            currentSlide += n;
-            if (currentSlide > maxStartIndex) {
-                currentSlide = 0;
-            } else if (currentSlide < 0) {
-                currentSlide = maxStartIndex;
+            function updateSlider() {
+                slideStage.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
             }
+
+            function moveSlide(n) {
+                const maxStartIndex = Math.max(0, totalSlides - visibleSlides);
+                currentSlide += n;
+                if (currentSlide > maxStartIndex) {
+                    currentSlide = 0;
+                } else if (currentSlide < 0) {
+                    currentSlide = maxStartIndex;
+                }
+                updateSlider();
+            }
+
             updateSlider();
-        }
 
-        updateSlider();
+            document.querySelector('.slide-control-prev').onclick = function () {
+                moveSlide(-1);
+            };
 
-        document.querySelector('.slide-control-prev').onclick = function () {
-            moveSlide(-1);
-        };
+            document.querySelector('.slide-control-next').onclick = function () {
+                moveSlide(1);
+            };
 
-        document.querySelector('.slide-control-next').onclick = function () {
-            moveSlide(1);
-        };
+            setInterval(function () {
+                moveSlide(1);
+            }, 5000);
+        </script>
 
-        setInterval(function () {
-            moveSlide(1);
-        }, 5000);
-    </script>
+        <div>
+            <article>
 
-    <div style="width: 1000px; margin: 0 auto;">
-        <article style="display: flex; gap: 15px;">
+                <aside id="left">
+                    <div>
+                        <p>Sách theo chủ đề</p>
+                        <ul type="square">
+                            <li><a href="#">Ngoại ngữ</a></li>
+                            <li><a href="#">Công nghệ thông tin</a></li>
+                            <li><a href="#">Luật</a></li>
+                            <li><a href="#">Văn học</a></li>
+                            <li><a href="#">Khoa học kĩ thuật</a></li>
+                            <li><a href="#">Nông nghiệp</a></li>
+                            <li><a href="#">Lịch sử, địa lý</a></li>
+                            <li><a href="#">Kinh tế</a></li>
+                            <li><a href="#">Nghệ thuật sống</a></li>
+                        </ul>
+                    </div>
 
-            <aside
-                style="width: 220px; flex-shrink: 0; padding: 10px; background-color: #BFDDF0; border: 1px solid #999;">
-                <h2 style="margin-top: 0;">Sách theo chủ đề</h2>
-                <ul type="square">
-                    <li><a href="#">Ngoại ngữ</a></li>
-                    <li><a href="#">Công nghệ thông tin</a></li>
-                    <li><a href="#">Luật</a></li>
-                    <li><a href="#">Văn học</a></li>
-                    <li><a href="#">Khoa học kĩ thuật</a></li>
-                    <li><a href="#">Nông nghiệp</a></li>
-                    <li><a href="#">Lịch sử, địa lý</a></li>
-                    <li><a href="#">Kinh tế</a></li>
-                    <li><a href="#">Nghệ thuật sống</a></li>
-                </ul>
+                    <div>
+                        <p>Sách theo nhà xuất bản</p>
+                        <ul type="square">
+                            <li><a href="#">Nhà xuất bản Trẻ</a></li>
+                            <li><a href="#">NXB Thống kê</a></li>
+                            <li><a href="#">Kim đồng</a></li>
+                            <li><a href="#">Đại học quốc gia</a></li>
+                            <li><a href="#">Văn hóa nghệ thuật</a></li>
+                            <li><a href="#">Văn hóa</a></li>
+                            <li><a href="#">Lao động - Xã hội</a></li>
+                            <li><a href="#">Khoa học & Kỹ thuật</a></li>
+                        </ul>
+                    </div>
 
-                <h2>Sách theo nhà xuất bản</h2>
-                <ul type="square">
-                    <li><a href="#">Nhà xuất bản Trẻ</a></li>
-                    <li><a href="#">NXB Thống kê</a></li>
-                    <li><a href="#">Kim đồng</a></li>
-                    <li><a href="#">Đại học quốc gia</a></li>
-                    <li><a href="#">Văn hóa nghệ thuật</a></li>
-                    <li><a href="#">Văn hóa</a></li>
-                    <li><a href="#">Lao động - Xã hội</a></li>
-                    <li><a href="#">Khoa học & Kỹ thuật</a></li>
-                </ul>
-
-                <div class="calendar">
-                    <script LANGUAGE="JavaScript">
-                        monthnames = new Array("January", "February", "March",
-                            "April", "May", "June", "July", "August", "September", "October",
-                            "November", "December");
-                        function addlink(month, day, href) {
-                            if (!this.links) this.links = {};
-                            var key = month + '-' + day;
-                            this.links[key] = href;
-                        }
-                        Array.prototype.addlink = addlink; monthdays
-                            = new Array(12); monthdays[0] = 31;
-                        monthdays[1] = 28; monthdays[2] = 31;
-                        monthdays[3] = 30; monthdays[4] = 31;
-                        monthdays[5] = 30; monthdays[6] = 31;
-                        monthdays[7] = 31; monthdays[8] = 30;
-                        monthdays[9] = 31; monthdays[10] = 30;
-                        monthdays[11] = 31; todayDate = new Date();
-                        thisday = todayDate.getDay();
-                        thismonth = todayDate.getMonth();
-                        thisdate = todayDate.getDate();
-                        thisyear = todayDate.getYear();
-                        thisyear = thisyear % 100;
-                        thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
-                        if (((thisyear % 4 == 0) && !(thisyear % 100 == 0)) || (thisyear % 400 == 0)) {
-                            monthdays[1]++;
-                        }
-                        var firstDayOfMonth = new Date(thisyear, thismonth, 1).getDay();
-                        var startspaces = firstDayOfMonth;
-                        document.write("<table style='width: 100%; border-collapse: collapse;'>");
-                        document.write("<tr><td colspan='7' class='monthyear' style='background-color: #4CAF50; color: white; padding: 5px; text-align: center; font-weight: bold;'>" + monthnames[thismonth] + " " + thisyear + "</td></tr>");
-                        document.write("<tr class='weektitle' style='background-color: #ddd;'>");
-                        document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Sun</td>");
-                        document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Mon</td>");
-                        document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Tue</td>");
-                        document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Wed</td>");
-                        document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Thu</td>");
-                        document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Fri</td>");
-                        document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Sat</td>");
-                        document.write("</tr><tr>");
-                        for (i = 0; i < startspaces; i++) {
-                            document.write("<td style='border: 1px solid #999;'></td>");
-                        }
-                        for (i = 1; i <= monthdays[thismonth]; i++) {
-                            var thislink = this[i];
-                            if (thislink) {
-                                document.write("<td align='center' style='border: 1px solid #999; padding: 3px;'><a href='" + thislink[2] + "'>" + i + "</a></td>");
-                            } else {
-                                document.write("<td align='center' style='border: 1px solid #999; padding: 3px;'>" + i + "</td>");
+                    <div class="calendar">
+                        <script LANGUAGE="JavaScript">
+                            monthnames = new Array("January", "February", "March",
+                                "April", "May", "June", "July", "August", "September", "October",
+                                "November", "December");
+                            function addlink(month, day, href) {
+                                if (!this.links) this.links = {};
+                                var key = month + '-' + day;
+                                this.links[key] = href;
                             }
-                            if (((i + startspaces) % 7 == 0) && (i != monthdays[thismonth])) {
-                                document.write("</tr><tr>");
+                            Array.prototype.addlink = addlink; monthdays
+                                = new Array(12); monthdays[0] = 31;
+                            monthdays[1] = 28; monthdays[2] = 31;
+                            monthdays[3] = 30; monthdays[4] = 31;
+                            monthdays[5] = 30; monthdays[6] = 31;
+                            monthdays[7] = 31; monthdays[8] = 30;
+                            monthdays[9] = 31; monthdays[10] = 30;
+                            monthdays[11] = 31; todayDate = new Date();
+                            thisday = todayDate.getDay();
+                            thismonth = todayDate.getMonth();
+                            thisdate = todayDate.getDate();
+                            thisyear = todayDate.getYear();
+                            thisyear = thisyear % 100;
+                            thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
+                            if (((thisyear % 4 == 0) && !(thisyear % 100 == 0)) || (thisyear % 400 == 0)) {
+                                monthdays[1]++;
                             }
-                        }
-                        document.write("</tr></table>");
-                    </script>
-                </div>
-            </aside>
+                            var firstDayOfMonth = new Date(thisyear, thismonth, 1).getDay();
+                            var startspaces = firstDayOfMonth;
+                            document.write("<table style='width: 100%; border-collapse: collapse;'>");
+                            document.write("<tr><td colspan='7' class='monthyear' style='background-color: #4CAF50; color: white; padding: 5px; text-align: center; font-weight: bold;'>" + monthnames[thismonth] + " " + thisyear + "</td></tr>");
+                            document.write("<tr class='weektitle' style='background-color: #ddd;'>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Sun</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Mon</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Tue</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Wed</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Thu</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Fri</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Sat</td>");
+                            document.write("</tr><tr>");
+                            for (i = 0; i < startspaces; i++) {
+                                document.write("<td style='border: 1px solid #999;'></td>");
+                            }
+                            for (i = 1; i <= monthdays[thismonth]; i++) {
+                                var thislink = this[i];
+                                if (thislink) {
+                                    document.write("<td align='center' style='border: 1px solid #999; padding: 3px;'><a href='" + thislink[2] + "'>" + i + "</a></td>");
+                                } else {
+                                    document.write("<td align='center' style='border: 1px solid #999; padding: 3px;'>" + i + "</td>");
+                                }
+                                if (((i + startspaces) % 7 == 0) && (i != monthdays[thismonth])) {
+                                    document.write("</tr><tr>");
+                                }
+                            }
+                            document.write("</tr></table>");
+                        </script>
+                    </div>
+                </aside>
 
-            <section style="flex-grow: 1; border: 1px solid #ccc; padding: 15px;" align="center">
-                <p align="center">
-                    <a href="Chitietsanpham.html">
-                        <b>
-                            <font size="6" color="blue">Giáo trình Tin học cơ bản</font>
-                        </b>
-                    </a>
-                </p>
-                <p align="center">
-                    <img src="Images/sach.jpg" alt="Giáo trình Tin học cơ bản" width="180">
-                </p>
-                <p align="center">
-                    Đơn giá: <b>
-                        <font size="5" color="red">26,000 VNĐ</font>
-                    </b>
-                </p>
-                <p align="center">
-                    <a href="Chitietsanpham.html">
-                        <img src="Images/nut_chon_mua.png" alt="Chọn mua" width="120" border="0">
-                    </a>
-                </p>
-            </section>
+                <section>
+                    <p>Sách mới</p>
+                    <div class="sach">
+                        <p class="tensach"><a href="Chitietsach.html">Tin Học Cơ Bản</a>
+                        </p>
+                        <img class="hinhsach" src="Images/sach.jpg">
+                        <p class="dongia">Đơn giá: <span class="gia">50,000 VNĐ</span></p>
+                        <a href="#"><img class="nutchonmua" src="Images/nut_chon_mua.png"></a>
+                    </div>
+                    <div class="sach">
+                        <p class="tensach"><a href="Chitietsach.html">Hướng Dẫn Tự Học C++</a>
+                        </p>
+                        <img class="hinhsach" src="Images/lap_trinh_c++.jpg">
+                        <p class="dongia">Đơn giá: <span class="gia">70,000 VNĐ</span></p>
+                        <a href="#"><img class="nutchonmua" src="Images/nut_chon_mua.png"></a>
+                    </div>
+                    <div class="sach">
+                        <p class="tensach"><a href="Chitietsach.html">Hướng Dẫn Tự Học Thiết Kế Web</a>
+                        </p>
+                        <img class="hinhsach" src="Images/thiet_ke_web.jpg">
+                        <p class="dongia">Đơn giá: <span class="gia">40,000 VNĐ</span></p>
+                        <a href="#"><img class="nutchonmua" src="Images/nut_chon_mua.png"></a>
+                    </div>
+                    <div class="sach">
+                        <p class="tensach"><a href="Chitietsach.html">Hướng Dẫn Tự Học Visual Basic 6.0</a>
+                        </p>
+                        <img class="hinhsach" src="Images/visual_basic_6.jpg">
+                        <p class="dongia">Đơn giá: <span class="gia">50,000 VNĐ</span></p>
+                        <a href="#"><img class="nutchonmua" src="Images/nut_chon_mua.png"></a>
+                    </div>
+                    <div class="sach">
+                        <p class="tensach"><a href="Chitietsach.html">Hướng Dẫn Tự Học Photoshop</a>
+                        </p>
+                        <img class="hinhsach" src="Images/sach_photoshop.png">
+                        <p class="dongia">Đơn giá: <span class="gia">60,000 VNĐ</span></p>
+                        <a href="#"><img class="nutchonmua" src="Images/nut_chon_mua.png"></a>
+                    </div>
+                </section>
 
-            <aside style="width: 220px; flex-shrink: 0;">
-                <p align="center" style="margin-top: 0;"><b>
-                        <font color="blue">SÁCH BÁN NHIỀU</font>
-                    </b></p>
-                <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse;">
-                    <tr>
-                        <td>
-                            <marquee direction="up" scrollamount="3" scrolldelay="100" onMouseMove="this.stop()"
-                                onMouseOut="this.start()" height="180">
-                                <p align="center">
-                                    <a href="#" style="text-decoration: none; color: black;">
-                                        <img src="Images/visual_basic_6.jpg" width="70"><br>
-                                        <font size="2">Thủ Thuật Lập Trình VB6</font>
-                                    </a>
-                                </p>
-                                <hr>
-                                <p align="center">
-                                    <a href="#" style="text-decoration: none; color: black;">
-                                        <img src="Images/sach.jpg" width="70"><br>
-                                        <font size="2">Giáo trình Tin học cơ bản</font>
-                                    </a>
-                                </p>
-                            </marquee>
-                        </td>
-                    </tr>
-                </table>
+                <aside id="right">
+                    <div id="sachbannhieu">
+                        <p>SÁCH BÁN NHIỀU</p>
+                        <table width="100%" border="1" cellspacing="0" cellpadding="5"
+                            style="border-collapse: collapse;">
+                            <tr>
+                                <td>
+                                    <marquee direction="up" scrollamount="3" scrolldelay="100" onMouseMove="this.stop()"
+                                        onMouseOut="this.start()" height="180">
+                                        <p align="center">
+                                            <a href="#" style="text-decoration: none; color: black;">
+                                                <img src="Images/visual_basic_6.jpg" width="70"><br>
+                                                <font size="2">Thủ Thuật Lập Trình VB6</font>
+                                            </a>
+                                        </p>
+                                        <hr>
+                                        <p align="center">
+                                            <a href="#" style="text-decoration: none; color: black;">
+                                                <img src="Images/sach.jpg" width="70"><br>
+                                                <font size="2">Giáo trình Tin học cơ bản</font>
+                                            </a>
+                                        </p>
+                                    </marquee>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
 
-                <p align="center"><b>
-                        <font color="blue">LIÊN KẾT WEBSITE</font>
-                    </b></p>
-                <div align="center">
-                    <select onchange="if(this.value) window.open(this.value,'_blank')">
-                        <option value="">--- Chọn trang liên kết ---</option>
-                        <option value="https://tdmu.edu.vn">ĐH Thủ Dầu Một</option>
-                        <option value="https://fet.tdmu.edu.vn">Khoa Kỹ thuật – Công nghệ</option>
-                    </select>
-                </div>
-            </aside>
+                    <div id="lienketwebsite">
+                        <p>LIÊN KẾT WEBSITE</p>
+                        <div align="center">
+                            <select onchange="if(this.value) window.open(this.value,'_blank')">
+                                <option value="">--- Chọn trang liên kết ---</option>
+                                <option value="https://tdmu.edu.vn">ĐH Thủ Dầu Một</option>
+                                <option value="https://fet.tdmu.edu.vn">Khoa Kỹ thuật – Công nghệ</option>
+                            </select>
+                        </div>
+                    </div>
 
-        </article>
+                    <div id="thongketruycap">
+                        <p>THỐNG KÊ TRUY CẬP</p>
+                        <h4>Tổng truy cập: 160</h4>
+                        <h4>Đang online: 5</h4>
+                    </div>
+                </aside>
+
+            </article>
+        </div>
     </div>
 
-    <footer style="background-color: #f0f0f0; border-top: 2px solid blue; padding: 15px; margin-top: 20px;"
-        align="center">
+    <footer align="center">
         <p>©2016 - Nhà sách ABC. Allright Reserved</p>
         <p>Website được phát triển để sử dụng làm bài tập thực hành môn Thiết kế và Lập trình Web</p>
         <p>Email: abc.bookstore@gmail.com</p>

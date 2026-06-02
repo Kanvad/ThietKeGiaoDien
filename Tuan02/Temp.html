@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký thành viên</title>
+</head>
+
+<body bgcolor="#6eb7dd">
+
+    <div align="center">
+        <p><b>
+                <font size="6" color="black">ĐĂNG KÝ THÀNH VIÊN</font>
+            </b></p>
+
+        <form action="#" name="dangky" method="post">
+
+            <div style="width: 600px;" align="left">
+
+                <fieldset>
+                    <legend><b>Thông tin cá nhân</b></legend>
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="8">
+                        <tr>
+                            <td width="150">Họ và tên:</td>
+                            <td><input id="hoten" type="text" name="txtHoTen" size="30"></td>
+                        </tr>
+                        <tr>
+                            <td>Ngày sinh:</td>
+                            <td>
+                                Ngày:
+                                <select name="Ngay">
+                                    <option value="01" selected>01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="04">04</option>
+                                    <option value="05">05</option>
+                                    <option value="31">31</option>
+                                </select>
+
+                                Tháng:
+                                <select name="Thang">
+                                    <option value="01" selected>01</option>
+                                    <option value="02">02</option>
+                                    <option value="03">03</option>
+                                    <option value="12">12</option>
+                                </select>
+
+                                Năm: <input id="nam" type="text" name="txtNam" size="4">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Giới tính:</td>
+                            <td>
+                                <input type="radio" name="radGioiTinh" value="Nam" checked> Nam
+                                <input type="radio" name="radGioiTinh" value="Nữ"> Nữ
+                            </td>
+                        </tr>
+                        <tr>
+                            <td valign="top">Địa chỉ:</td>
+                            <td>
+                                <textarea name="txtDiaChi" rows="3" cols="30"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Điện thoại:</td>
+                            <td><input type="tel" name="txtDienThoai" size="20"></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>
+                                <input id="email" type="email" name="txtEmail" size="30" required>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <br>
+
+                <fieldset>
+                    <legend><b>Thông tin đăng nhập</b></legend>
+
+                    <table width="100%" border="0" cellspacing="0" cellpadding="8">
+                        <tr>
+                            <td width="150">Tên đăng nhập:</td>
+                            <td><input id="tendangnhap" type="text" name="txtTenDangNhap" size="25" required></td>
+                        </tr>
+                        <tr>
+                            <td>Mật khẩu:</td>
+                            <td><input id="matkhau" type="password" name="txtMatKhau" size="25" required></td>
+                        </tr>
+                        <tr>
+                            <td>Nhập lại mật khẩu:</td>
+                            <td><input id="nhaplaimatkhau" type="password" name="txtNhapLaiMatKhau" size="25" required>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+
+                <br>
+
+                <div align="center">
+                    <input type="submit" value="Đăng ký" onclick="return KiemTraThongTin();"> &nbsp;&nbsp;
+                    <input type="reset" value="Hủy">
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+
+    <script Language="JavaScript">
+        function KiemTraThongTin() {
+            var hoTen = document.getElementById("hoten");
+            if (hoTen.value == "") {
+                alert("Vui lòng nhập họ và tên.");
+                hoTen.focus();
+                return false;
+            }
+
+            var nam = document.getElementById("nam");
+            if (nam.value == "") {
+                alert("Hãy điền Năm sinh.");
+                nam.focus();
+                return false;
+            }
+            if (isNaN(nam.value) == true) {
+                alert("Năm sinh phải là số.");
+                nam.value = "";
+                nam.focus();
+                return false;
+            }
+            var year = parseInt(nam.value, 10);
+            var currentYear = new Date().getFullYear();
+            if (year < 1900 || year > currentYear) {
+                alert("Năm sinh không hợp lệ.");
+                nam.focus();
+                return false;
+            }
+
+            var email = document.getElementById("email");
+            var re = /\w+@\w+\.\w+/;
+            if (email.value == "") {
+                alert("Bạn chưa nhập Email.");
+                email.focus();
+                return false;
+            } else if (re.test(email.value) == false) {
+                alert("Email không đúng định dạng!");
+                email.focus();
+                return false;
+            }
+
+            var user = document.getElementById("tendangnhap");
+            if (!user || user.value.trim() == "") {
+                alert("Vui lòng nhập Tên đăng nhập.");
+                if (user) user.focus();
+                return false;
+            }
+            if (user.value.length < 4) {
+                alert("Tên đăng nhập phải ít nhất 4 ký tự.");
+                user.focus();
+                return false;
+            }
+
+            var pwd = document.getElementById("matkhau");
+            var pwd2 = document.getElementById("nhaplaimatkhau");
+            if (!pwd || pwd.value == "") {
+                alert("Vui lòng nhập Mật khẩu.");
+                if (pwd) pwd.focus();
+                return false;
+            }
+            if (pwd.value.length < 6) {
+                alert("Mật khẩu phải có ít nhất 6 ký tự.");
+                pwd.focus();
+                return false;
+            }
+            if (!pwd2 || pwd2.value == "") {
+                alert("Vui lòng nhập lại Mật khẩu.");
+                if (pwd2) pwd2.focus();
+                return false;
+            }
+            if (pwd.value !== pwd2.value) {
+                alert("Mật khẩu không khớp.");
+                pwd2.focus();
+                return false;
+            }
+
+            var phone = document.forms['dangky'].txtDienThoai;
+            if (phone && phone.value.trim() != "") {
+                var phoneRe = /^[+0-9\s\-()]{7,20}$/;
+                if (!phoneRe.test(phone.value)) {
+                    alert("Số điện thoại không hợp lệ.");
+                    phone.focus();
+                    return false;
+                }
+            }
+
+            var addr = document.forms['dangky'].txtDiaChi;
+            if (addr && addr.value.trim() != "" && addr.value.trim().length < 5) {
+                alert("Địa chỉ quá ngắn.");
+                addr.focus();
+                return false;
+            }
+
+            /* Thông báo khi thông tin hợp lệ */
+            alert("Đăng ký thành công! Xin chúc mừng.");
+            return true;
+        }
+    </script>
+</body>
+
+</html>

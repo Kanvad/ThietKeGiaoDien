@@ -1,113 +1,335 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Đăng ký thành viên</title>
+    <meta charset="utf-8">
+    <title>Đăng ký - Nhà sách ABC</title>
+    <link rel="stylesheet" type="text/css" href="Script/Style.css">
+    <link rel="stylesheet" type="text/css" href="Script/Slider.css">
 </head>
 
-<body bgcolor="#6eb7dd">
+<body bgcolor="#FFFFFF" style="margin: 0; padding: 0; font-family: Arial, sans-serif;">
 
-    <div align="center">
-        <p><b>
-                <font size="6" color="black">ĐĂNG KÝ THÀNH VIÊN</font>
-            </b></p>
+    <header>
+        <div id="logo">
+            <a href="Trangchu.html">
+                <img src="Images/logo.jpg" alt="Logo Website Sách" height="60" border="0">
+            </a>
+        </div>
+        <div id="dn">
+            <img src="Images/login.png" width="16" height="16" align="absmiddle">
+            <a href="Dangnhap.html"><b>Đăng nhập</b></a>
+            <a>|</a>
+            <a href="Dangky.html"><b>Đăng ký</b></a>
+            <img src="Images/gio_hang.jpg" width="16" height="16" align="absmiddle">
+            <a href="#"><b>Giỏ hàng</b></a>
+        </div>
+    </header>
 
-        <form action="#" name="dangky" method="post">
-
-            <div style="width: 600px;" align="left">
-
-                <fieldset>
-                    <legend><b>Thông tin cá nhân</b></legend>
-
-                    <table width="100%" border="0" cellspacing="0" cellpadding="8">
-                        <tr>
-                            <td width="150">Họ và tên:</td>
-                            <td><input id="hoten" type="text" name="txtHoTen" size="30"></td>
-                        </tr>
-                        <tr>
-                            <td>Ngày sinh:</td>
-                            <td>
-                                Ngày:
-                                <select name="Ngay">
-                                    <option value="01" selected>01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="31">31</option>
-                                </select>
-
-                                Tháng:
-                                <select name="Thang">
-                                    <option value="01" selected>01</option>
-                                    <option value="02">02</option>
-                                    <option value="03">03</option>
-                                    <option value="12">12</option>
-                                </select>
-
-                                Năm: <input id="nam" type="text" name="txtNam" size="4">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Giới tính:</td>
-                            <td>
-                                <input type="radio" name="radGioiTinh" value="Nam" checked> Nam
-                                <input type="radio" name="radGioiTinh" value="Nữ"> Nữ
-                            </td>
-                        </tr>
-                        <tr>
-                            <td valign="top">Địa chỉ:</td>
-                            <td>
-                                <textarea name="txtDiaChi" rows="3" cols="30"></textarea>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Điện thoại:</td>
-                            <td><input type="tel" name="txtDienThoai" size="20"></td>
-                        </tr>
-                        <tr>
-                            <td>Email:</td>
-                            <td>
-                                <input id="email" type="email" name="txtEmail" size="30" required>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-
-                <br>
-
-                <fieldset>
-                    <legend><b>Thông tin đăng nhập</b></legend>
-
-                    <table width="100%" border="0" cellspacing="0" cellpadding="8">
-                        <tr>
-                            <td width="150">Tên đăng nhập:</td>
-                            <td><input id="tendangnhap" type="text" name="txtTenDangNhap" size="25" required></td>
-                        </tr>
-                        <tr>
-                            <td>Mật khẩu:</td>
-                            <td><input id="matkhau" type="password" name="txtMatKhau" size="25" required></td>
-                        </tr>
-                        <tr>
-                            <td>Nhập lại mật khẩu:</td>
-                            <td><input id="nhaplaimatkhau" type="password" name="txtNhapLaiMatKhau" size="25" required>
-                            </td>
-                        </tr>
-                    </table>
-                </fieldset>
-
-                <br>
-
-                <div align="center">
-                    <input type="submit" value="Đăng ký" onclick="return KiemTraThongTin();"> &nbsp;&nbsp;
-                    <input type="reset" value="Hủy">
-                </div>
-
+    <nav>
+        <div id="subnav">
+            <ul>
+                <li><a href="Trangchu.html"><b>TRANG CHỦ</b></a></li>
+                <li><a href="Gioithieu.html"><b>GIỚI THIỆU</b></a></li>
+                <li><a href="#"><b>LIÊN HỆ</b></a></li>
+            </ul>
+            <div>
+                <input type="text" size="36" name="tsearch" placeholder="Hãy nhập tên sách cần tìm ...">
+                <input type="submit" value="Tìm sách">
             </div>
-        </form>
+        </div>
+    </nav>
+
+    <div id="body">
+        <aside id="slide">
+            <div class="slide-pager">
+                <div class="slide-control-prev">«</div>
+                <div class="slide-control-next">»</div>
+            </div>
+            <div class="slide-container">
+                <div class="slide-stage">
+                    <div class="slide-image"><a href="#"><img src="Images/lap_trinh_c++.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/thiet_ke_web.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/sach.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/sach_java.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/visual_basic_6.jpg" /></a></div>
+                    <div class="slide-image"><a href="#"><img src="Images/sach_photoshop.png" /></a></div>
+                </div>
+            </div>
+        </aside>
+
+        <script>
+            const slideStage = document.querySelector('.slide-stage');
+            const slides = document.querySelectorAll('.slide-image');
+            const slideWidth = 200;
+            const visibleSlides = 5;
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+
+            function updateSlider() {
+                slideStage.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }
+
+            function moveSlide(n) {
+                const maxStartIndex = Math.max(0, totalSlides - visibleSlides);
+                currentSlide += n;
+                if (currentSlide > maxStartIndex) {
+                    currentSlide = 0;
+                } else if (currentSlide < 0) {
+                    currentSlide = maxStartIndex;
+                }
+                updateSlider();
+            }
+
+            updateSlider();
+
+            document.querySelector('.slide-control-prev').onclick = function () {
+                moveSlide(-1);
+            };
+
+            document.querySelector('.slide-control-next').onclick = function () {
+                moveSlide(1);
+            };
+
+            setInterval(function () {
+                moveSlide(1);
+            }, 5000);
+        </script>
+
+        <div style="width: 1000px; margin: 0 auto;">
+            <article style="display: table-row;">
+
+                <aside id="left">
+                    <div>
+                        <p>Sách theo chủ đề</p>
+                        <ul type="square">
+                            <li><a href="#">Ngoại ngữ</a></li>
+                            <li><a href="#">Công nghệ thông tin</a></li>
+                            <li><a href="#">Luật</a></li>
+                            <li><a href="#">Văn học</a></li>
+                            <li><a href="#">Khoa học kĩ thuật</a></li>
+                            <li><a href="#">Nông nghiệp</a></li>
+                            <li><a href="#">Lịch sử, địa lý</a></li>
+                            <li><a href="#">Kinh tế</a></li>
+                            <li><a href="#">Nghệ thuật sống</a></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <p>Sách theo nhà xuất bản</p>
+                        <ul type="square">
+                            <li><a href="#">Nhà xuất bản Trẻ</a></li>
+                            <li><a href="#">NXB Thống kê</a></li>
+                            <li><a href="#">Kim đồng</a></li>
+                            <li><a href="#">Đại học quốc gia</a></li>
+                            <li><a href="#">Văn hóa nghệ thuật</a></li>
+                            <li><a href="#">Văn hóa</a></li>
+                            <li><a href="#">Lao động - Xã hội</a></li>
+                            <li><a href="#">Khoa học & Kỹ thuật</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="calendar">
+                        <script LANGUAGE="JavaScript">
+                            monthnames = new Array("January", "February", "March",
+                                "April", "May", "June", "July", "August", "September", "October",
+                                "November", "December");
+                            function addlink(month, day, href) {
+                                if (!this.links) this.links = {};
+                                var key = month + '-' + day;
+                                this.links[key] = href;
+                            }
+                            Array.prototype.addlink = addlink; monthdays
+                                = new Array(12); monthdays[0] = 31;
+                            monthdays[1] = 28; monthdays[2] = 31;
+                            monthdays[3] = 30; monthdays[4] = 31;
+                            monthdays[5] = 30; monthdays[6] = 31;
+                            monthdays[7] = 31; monthdays[8] = 30;
+                            monthdays[9] = 31; monthdays[10] = 30;
+                            monthdays[11] = 31; todayDate = new Date();
+                            thisday = todayDate.getDay();
+                            thismonth = todayDate.getMonth();
+                            thisdate = todayDate.getDate();
+                            thisyear = todayDate.getYear();
+                            thisyear = thisyear % 100;
+                            thisyear = ((thisyear < 50) ? (2000 + thisyear) : (1900 + thisyear));
+                            if (((thisyear % 4 == 0) && !(thisyear % 100 == 0)) || (thisyear % 400 == 0)) {
+                                monthdays[1]++;
+                            }
+                            var firstDayOfMonth = new Date(thisyear, thismonth, 1).getDay();
+                            var startspaces = firstDayOfMonth;
+                            document.write("<table style='width: 100%; border-collapse: collapse;'>");
+                            document.write("<tr><td colspan='7' class='monthyear' style='background-color: #4CAF50; color: white; padding: 5px; text-align: center; font-weight: bold;'>" + monthnames[thismonth] + " " + thisyear + "</td></tr>");
+                            document.write("<tr class='weektitle' style='background-color: #ddd;'>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Sun</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Mon</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Tue</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Wed</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Thu</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Fri</td>");
+                            document.write("<td align='center' style='padding: 3px; border: 1px solid #999;'>Sat</td>");
+                            document.write("</tr><tr>");
+                            for (i = 0; i < startspaces; i++) {
+                                document.write("<td style='border: 1px solid #999;'></td>");
+                            }
+                            for (i = 1; i <= monthdays[thismonth]; i++) {
+                                var thislink = this[i];
+                                if (thislink) {
+                                    document.write("<td align='center' style='border: 1px solid #999; padding: 3px;'><a href='" + thislink[2] + "'>" + i + "</a></td>");
+                                } else {
+                                    document.write("<td align='center' style='border: 1px solid #999; padding: 3px;'>" + i + "</td>");
+                                }
+                                if (((i + startspaces) % 7 == 0) && (i != monthdays[thismonth])) {
+                                    document.write("</tr><tr>");
+                                }
+                            }
+                            document.write("</tr></table>");
+                        </script>
+                    </div>
+                </aside>
+
+                <section>
+                    <p>ĐĂNG KÝ THÀNH VIÊN</p>
+                    <div class="form-container">
+
+                        <form action="#" name="dangky" method="post">
+
+                            <fieldset>
+                                <legend><b>Thông tin cá nhân</b></legend>
+
+                                <div class="form-group">
+                                    <label for="hoten">Họ và tên:</label>
+                                    <input id="hoten" type="text" name="txtHoTen">
+                                </div>
+
+                                <div class="form-group date-group">
+                                    <label>Ngày sinh:</label>
+                                    <select name="Ngay">
+                                        <option value="01" selected>01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                    <select name="Thang">
+                                        <option value="01" selected>01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <input id="nam" type="text" name="txtNam" placeholder="Năm">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Giới tính:</label>
+                                    <div>
+                                        <input type="radio" name="radGioiTinh" value="Nam" checked> Nam
+                                        <input type="radio" name="radGioiTinh" value="Nữ"> Nữ
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtDiaChi">Địa chỉ:</label>
+                                    <textarea id="txtDiaChi" name="txtDiaChi" rows="3"></textarea>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="txtDienThoai">Điện thoại:</label>
+                                    <input type="tel" id="txtDienThoai" name="txtDienThoai">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email:</label>
+                                    <input id="email" type="email" name="txtEmail" required>
+                                </div>
+
+                            </fieldset>
+
+                            <fieldset>
+                                <legend><b>Thông tin đăng nhập</b></legend>
+
+                                <div class="form-group">
+                                    <label for="tendangnhap">Tên đăng nhập:</label>
+                                    <input id="tendangnhap" type="text" name="txtTenDangNhap" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="matkhau">Mật khẩu:</label>
+                                    <input id="matkhau" type="password" name="txtMatKhau" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="nhaplaimatkhau">Nhập lại mật khẩu:</label>
+                                    <input id="nhaplaimatkhau" type="password" name="txtNhapLaiMatKhau" required>
+                                </div>
+
+                            </fieldset>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-submit" onclick="return KiemTraThongTin();">Đăng ký</button>
+                                <button type="reset" class="btn btn-cancel">Hủy</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </section>
+
+                <aside id="right">
+                    <div id="sachbannhieu">
+                        <p>SÁCH BÁN NHIỀU</p>
+                        <table width="100%" border="1" cellspacing="0" cellpadding="5"
+                            style="border-collapse: collapse;">
+                            <tr>
+                                <td>
+                                    <marquee direction="up" scrollamount="3" scrolldelay="100" onMouseMove="this.stop()"
+                                        onMouseOut="this.start()" height="180">
+                                        <p align="center">
+                                            <a href="#" style="text-decoration: none; color: black;">
+                                                <img src="Images/visual_basic_6.jpg" width="70"><br>
+                                                <font size="2">Thủ Thuật Lập Trình VB6</font>
+                                            </a>
+                                        </p>
+                                        <hr>
+                                        <p align="center">
+                                            <a href="#" style="text-decoration: none; color: black;">
+                                                <img src="Images/sach.jpg" width="70"><br>
+                                                <font size="2">Giáo trình Tin học cơ bản</font>
+                                            </a>
+                                        </p>
+                                    </marquee>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div id="lienketwebsite">
+                        <p>LIÊN KẾT WEBSITE</p>
+                        <div align="center">
+                            <select onchange="if(this.value) window.open(this.value,'_blank')">
+                                <option value="">--- Chọn trang liên kết ---</option>
+                                <option value="https://tdmu.edu.vn">ĐH Thủ Dầu Một</option>
+                                <option value="https://fet.tdmu.edu.vn">Khoa Kỹ thuật - Công nghệ</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div id="thongketruycap">
+                        <p>THỐNG KÊ TRUY CẬP</p>
+                        <h4>Tổng truy cập: 160</h4>
+                        <h4>Đang online: 5</h4>
+                    </div>
+                </aside>
+
+            </article>
+        </div>
     </div>
 
+    <footer align="center">
+        <p>©2016 - Nhà sách ABC. Allright Reserved</p>
+        <p>Website được phát triển để sử dụng làm bài tập thực hành môn Thiết kế và Lập trình Web</p>
+        <p>Email: abc.bookstore@gmail.com</p>
+    </footer>
 
     <script Language="JavaScript">
         function KiemTraThongTin() {
@@ -207,6 +429,7 @@
             return true;
         }
     </script>
+
 </body>
 
 </html>
